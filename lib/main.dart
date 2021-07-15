@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+
 void main() {
   return runApp(
     MaterialApp(
@@ -8,7 +9,13 @@ void main() {
         backgroundColor: Colors.black,
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Dice'),
+          title: Text(
+            'Dice',
+            style: TextStyle(
+              fontSize: 27,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           backgroundColor: Colors.green,
         ),
         body: DicePage(),
@@ -23,16 +30,15 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
-  int leftDiceNumber =1;
-  int rightDiceNumber =1;
+  int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
 
-  void Dice(){
+  void Dice() {
     setState(() {
-      leftDiceNumber =Random().nextInt(6)+1;
-      rightDiceNumber =Random().nextInt(6)+1;
+      leftDiceNumber = Random().nextInt(6) + 1;
+      rightDiceNumber = Random().nextInt(6) + 1;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +58,7 @@ class _DicePageState extends State<DicePage> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Colors.black,
-                ),
+              ),
               onPressed: Dice,
               child: Image.asset('images/dice$rightDiceNumber.png'),
             ),
